@@ -1,0 +1,17 @@
+name: lab1
+topology:
+  nodes:
+    r1:
+      kind: linux
+      image: quay.io/frrouting/frr:8.5.4
+    pc1:
+      kind: linux
+      image: alpine:latest
+      cmd: sleep infinity
+    pc2:
+      kind: linux
+      image: alpine:latest
+      cmd: sleep infinity
+  links:
+    - endpoints: ["r1:eth1", "pc1:eth1"]
+    - endpoints: ["r1:eth2", "pc2:eth1"]
